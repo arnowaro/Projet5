@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text{
+    @apply ml-4 text-lg leading-7 font-semibold;
+}
+
+.text-p{
+    @apply mt-2 text-gray-600 dark:text-gray-400 text-sm;
+}
