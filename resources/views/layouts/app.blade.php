@@ -8,7 +8,7 @@
     <script defer="" src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="{{ asset('./css/app.css') }}">
 </head>
-<body class="bg-gray-50" style="">
+<body class="dark:bg-gray-900" style="">
     <header>
         @include('layouts.header')
     </header>

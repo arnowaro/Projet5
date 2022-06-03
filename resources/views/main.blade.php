@@ -12,7 +12,7 @@
 </style>
     <div class="flex h-screen  dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen}">
       <!-- Desktop sidebar -->
-      <aside class="z-20 hidden w-80 overflow-y-auto  md:block flex-shrink-0">
+      <aside class="z-20 hidden w-80 overflow-y-auto md:block flex-shrink-0">
         <div class=" h-14 flex justify-center">
             <!-- <img src="./images/logo.png" class="w-32 h-24 mt-10"> -->
         </div>
@@ -90,9 +90,9 @@
       </aside>
 
       <div class="flex flex-col flex-1">
-        <header class="z-10 py-4  shadow-xs ">
-            <h2 class="text-white">Centre d'intérêt</h2>
-          <div class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
+        <header class="z-10 shadow-xs ">
+            <h2 class="text-white ">Centre d'intérêt</h2>
+          <div class="container flex h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
             <!-- Mobile hamburger -->
             <button class="p-1 -ml-1 mr-5 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple">
               <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -153,7 +153,7 @@
 <div class="block md:grid md:grid-flow-row-dense md:grid-cols-3 md:grid-rows-3 ">
  <div class="col-span-2">
     <div class="pt-10">
-<form class="bg-white shadow rounded-lg mb-6 p-4 w-full md:w-3/4">
+<form class="bg-white shadow rounded-lg mb-6 p-4  md:w-3/4">
             <textarea name="message" placeholder="Type something..." class=" focus:outline-none  w-full rounded-lg p-2 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
             <footer class="flex justify-between mt-2">
                 <div class="flex gap-2">
@@ -334,7 +334,7 @@
 
         
  </div>
-  <div class="hidden md:block lg:block py-8  sticky top-6">
+  <div class=" pl-10 hidden md:block lg:block py-8  sticky top-6">
 
   <input type="search" class="ml-16 w-3/4 py-2 pl-4 px-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-gray-50 focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Search" autocomplete="off">
 <card class=" w-96 rounded-lg shadow-lg">
@@ -353,7 +353,7 @@
 
         <div class="col-span-3 px-1 font-semibold flex flex-col">
           <div class="text-sm text-white"> Sangwa Albine </div>
-          <div class="text-xm text-slate-50 font-light"> @__svngwa._ </div>
+          <div class="text-xm text-slate-50 font-light"> @__svngwa </div>
         </div>
 
         <div class="col-span-2 py-2 justify-self-end">

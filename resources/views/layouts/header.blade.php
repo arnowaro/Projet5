@@ -1,4 +1,6 @@
-<nav class="flex items-center justify-between flex-wrap bg-black p-6">
+
+
+<nav class="flex items-center justify-between flex-wrap bg-black p-6 mb-10">
     <div class="flex items-center flex-no-shrink text-white mr-6">
         <h2 class="text-lg">nameSocial</h2>
     </div>
@@ -17,11 +19,24 @@
         </button>
       </div>
 
-      <div class="ml-3 relative">
+      {{-- <div class="ml-3 relative">
         <div>
           <button type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
             <span class="sr-only">Open user menu</span>
-            <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
           </button>
         </div>
+      </div> --}}
+
+      <div class="ml-3 relative">
+        <div>
+        <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-white text-white text-lg rounded-lg transition-colors duration-700 transform hover:bg-sky-400 hover:text-black focus:border-4 focus:border-indigo-300">Sign in</button>
+        </div>
+      </div>
+
+      <div class="ml-3 relative">
+        <div>
+        <button class="p-2 pl-5 pr-5 bg-transparent border-2 border-white text-white text-lg rounded-lg transition-colors duration-700 transform hover:bg-sky-400 hover:text-black focus:border-4 focus:border-indigo-300">Sign out</button>
+        </div>
+      </div>
 </nav>
