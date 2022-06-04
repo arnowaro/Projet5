@@ -35,5 +35,7 @@
     <input type="datetime" name="date_création" id="date_création" value="{{ date('Y-m-d H:i:s') }}">
 </div>
 
-
+<div>
+    <button type="submit">Commenter</button>
+</div>
 </form>

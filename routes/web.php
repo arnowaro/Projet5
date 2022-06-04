@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentaireController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,8 @@ Route::get('/', function () {
 });
 
 
-//cherche tous les commentaires
-Route::get('/commentaire',[CommentaireController::class, 'getComm'])->name('Commentaire');
+//cherche tous les commentaires 
+Route::get('/commentaire',[CommentaireControllerer::class, 'getComm'])->name('Commentaire');
 
 //cherche les commentaires par post id
 Route::get('/commentaire/{id}',[CommentaireController::class, 'getCommByPost'])->name('CommentaireByPost');
