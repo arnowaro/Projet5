@@ -18,6 +18,23 @@
 </head>
 <body class="bg-gray-50" style="">
 <script defer="" src="https://unpkg.com/alpinejs@3.1.1/dist/cdn.min.js"></script>
+@if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+  @endif
+  @if (session('status'))
+      <div class="text-3xl text-left font-bold text-green-600 mt-20 mb-10">
+          {{ session('status') }}
+      </div>
+  @endif
+
+
+
 <style>
 
     .hover-image-1{

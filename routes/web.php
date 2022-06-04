@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Authcontroller;
+use App\Http\Controllers\Membrecontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
-});
+    return view('index');})->name('home');
+
+Route::get('profile/{id}', [Membrecontroller::class, 'edit'])
+->whereNumber('id');
+
+Route::post('profile/{id}', [Membrecontroller::class, 'update'])
+->name('update.action');
+Route::get('register', [Authcontroller::class, 'register'])->name('register');
+
+Route::post('register', [Authcontroller::class, 'register_action'])->name('register.action');
+
+Route::get('login', [Authcontroller::class, 'login'])->name('login');
+
+Route::post('login', [Authcontroller::class, 'login_action'])->name('login.action');
+
+Route::get('signout', [Authcontroller::class, 'logout'])->name('signout');
