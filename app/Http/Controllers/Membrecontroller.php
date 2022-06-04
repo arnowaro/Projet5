@@ -41,7 +41,7 @@ class Membrecontroller extends Controller
         $member->prenom = $request->prenom;
         $member->nom = $request->nom;
         $member->email = $request->email;
-        if (null!==($request->file('avatar'))) {
+        /*if (null!==($request->file('avatar'))) {
             $name = $request->file('avatar')->getClientOriginalName();
             $extension = $request->file('avatar')->getClientOriginalExtension();
                  
@@ -51,7 +51,8 @@ class Membrecontroller extends Controller
             } else {
                 return redirect()->route('home')->with('status', "problème lors du chargement de l'image");
             } 
-            }    
+            } */
+           
             if (null!==($request->file('pcouverture'))) {
                 $name = $request->file('pcouverture')->getClientOriginalName();
                 $extension = $request->file('pcouverture')->getClientOriginalExtension();
@@ -69,4 +70,4 @@ class Membrecontroller extends Controller
             return redirect()->route('home');   
         }
     }
-}
+
