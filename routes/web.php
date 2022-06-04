@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentaireController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('welcome');
 });
+
+
+//cherche tous les commentaires 
+Route::get('/commentaire',[CommentaireControllerer::class, 'getComm'])->name('Commentaire');
+
+//cherche les commentaires par post id
+Route::get('/commentaire/{id}',[CommentaireController::class, 'getCommByPost'])->name('CommentaireByPost');
+
+//Ajoute le champs form pour ajouter un commentaire
+Route::get('/commentaire/create',[CommentaireController::class, 'createComm'])->name('CommentaireCreate');
+Route::post('/commentaire/create',[CommentaireController::class, 'storeComm'])->name('CommentaireStore');
+
+//Modifier un commentaire
+Route::get('/commentaire/{id}/edit',[CommentaireController::class, 'editComm'])->name('CommentaireEdit');
+Route::post('/commentaire/{id}/edit',[CommentaireController::class, 'updateComm'])->name('CommentaireUpdate');
+
+//Effacer un commentaire
+Route::get('/commentaire/{id}/delete',[CommentaireController::class, 'deleteComm'])->name('CommentaireDelete');
+Route::post('/commentaire/{id}/delete',[CommentaireController::class, 'destroyComm'])->name('CommentaireDestroy');
