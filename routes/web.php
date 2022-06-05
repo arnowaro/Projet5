@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('index');})->name('home');
 
 Route::get('profile/{id}', [Membrecontroller::class, 'edit'])
-->whereNumber('id');
+->whereNumber('id')->name('profile');
 
 Route::post('profile/{id}', [Membrecontroller::class, 'update'])
 ->name('update.action');

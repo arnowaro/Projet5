@@ -38,36 +38,50 @@ class Membrecontroller extends Controller
         
         $member = Membres::find($id);
         if (isset($member)) {
+           // dd($request);
         $member->prenom = $request->prenom;
         $member->nom = $request->nom;
         $member->email = $request->email;
-        /*if (null!==($request->file('avatar'))) {
-            $name = $request->file('avatar')->getClientOriginalName();
-            $extension = $request->file('avatar')->getClientOriginalExtension();
-                 
-            if (($name) && ($extension)) {
-                $path = $request->file('avatar')->store('/images', 'public');
-                $member->avatar = $path;
-            } else {
-                return redirect()->route('home')->with('status', "problème lors du chargement de l'image");
-            } 
-            } */
-           
-            if (null!==($request->file('pcouverture'))) {
+     
+        if (($_FILES['avatar']['error']!==4)||($_FILES['avatar']['error']==0)){
+            $path = $request->file('avatar')->store('/images', 'public');
+            $member->avatar = $path;
+        } elseif ($_FILES['avatar']['error']==4) {
+            //rien, le fichier est vide
+        } else {
+            //dd($_FILES['avatar']); 
+            return redirect()->route('profile',1)->with('status', "problème lors du chargement de l'image");   
+        }
+      
+      if (($_FILES['pcouverture']['error']!==4)||($_FILES['pcouverture']['error']==0)){ 
+
+        $path = $request->file('pcouverture')->store('/images', 'public');
+        $member->pcouverture = $path;
+        
+        } elseif ($_FILES['pcouverture']['error']==4) {
+            //rien, le fichier est vide
+        } else {    
+            //dd($_FILES['pcouverture']);
+         return redirect()->route('profile',1)->with('status', "problème lors du chargement de l'image");
+        }
+      /*if (null!==($request->file('pcouverture'))) {
                 $name = $request->file('pcouverture')->getClientOriginalName();
                 $extension = $request->file('pcouverture')->getClientOriginalExtension();
-                     
+                dd($name);
+                dd($extension);     
                 if (($name) && ($extension)) {
                     $path = $request->file('pcouverture')->store('/images', 'public');
                     $member->pcouverture = $path;
                 } else {
                     return redirect()->route('home')->with('status', "problème lors du chargement de l'image");
                 } 
-                }
+                }*/
         $member->save();
-        return redirect()->route('home')->with('status', 'votre profil a bien été modifié !'); }
-        else
+        return redirect()->route('home')->with('status', 'votre profil a bien été modifié !'); 
+    }
+        else{
             return redirect()->route('home');   
         }
     }
 
+}
