@@ -26,8 +26,8 @@ class Authcontroller extends Controller
             'password' => 'required',
         ]);
 
-        $membre = new Membres();
-        $membre->nom=$validate['name'];
+        $membre = new User();
+        $membre->name=$validate['name'];
         $membre->email = $validate['email'];
         $membre->password = Hash::make($validate['password']);
         $membre->save();
@@ -43,14 +43,16 @@ class Authcontroller extends Controller
             'email' => 'required',
             'password' => 'required',
             ]);
-            $user = User::where('email' ,'=', $request['email'])
+            $membre = User::where('email' ,'=', $request['email'])
             ->first();
             //$roles=User::with('roles')->get()->where('name' ,'=', $user->name);
-          
-            if (Auth::attempt(['email'=>$request->email, 'password'=>$request->password])){
+            $credentials = $request->only('email', 'password');
+           
+            if (Auth::attempt($credentials)) {
+               
             $request->session()->regenerate();
-            session(['user' => $user]);
-            return redirect()->intended('livres');
+            session(['user' => $membre]);
+            return redirect()->intended(route('profile',$membre->id));
             }
        return redirect()->route('login')->with('Echec','Wrong username or password!');      
     }

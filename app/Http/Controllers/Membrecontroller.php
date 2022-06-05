@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Membres;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -10,7 +11,7 @@ class Membrecontroller extends Controller
 {
     public function edit($id)
     {
-        $member = Membres::find($id);
+        $member = User::find($id);
       //  $auteurs = Auteurs::all();
 
         if (isset($member)) {
@@ -28,7 +29,7 @@ class Membrecontroller extends Controller
     {
       
         $request->validate([
-            'nom' => 'required|max:255',
+            'name' => 'required|max:255',
             'prenom' => 'required',
             'email' => 'required|string|email|max:255',
            // 'avatar'=> 'required',
@@ -36,11 +37,11 @@ class Membrecontroller extends Controller
      
         ]);
         
-        $member = Membres::find($id);
+        $member = User::find($id);
         if (isset($member)) {
            // dd($request);
         $member->prenom = $request->prenom;
-        $member->nom = $request->nom;
+        $member->name= $request->name;
         $member->email = $request->email;
      
         if (($_FILES['avatar']['error']!==4)||($_FILES['avatar']['error']==0)){
@@ -50,7 +51,7 @@ class Membrecontroller extends Controller
             //rien, le fichier est vide
         } else {
             //dd($_FILES['avatar']); 
-            return redirect()->route('profile',1)->with('status', "problème lors du chargement de l'image");   
+            return redirect()->route('profile',$member->id)->with('status', "problème lors du chargement de l'image");   
         }
       
       if (($_FILES['pcouverture']['error']!==4)||($_FILES['pcouverture']['error']==0)){ 
@@ -62,7 +63,7 @@ class Membrecontroller extends Controller
             //rien, le fichier est vide
         } else {    
             //dd($_FILES['pcouverture']);
-         return redirect()->route('profile',1)->with('status', "problème lors du chargement de l'image");
+         return redirect()->route('profile',$member->id)->with('status', "problème lors du chargement de l'image");
         }
       /*if (null!==($request->file('pcouverture'))) {
                 $name = $request->file('pcouverture')->getClientOriginalName();
@@ -77,7 +78,7 @@ class Membrecontroller extends Controller
                 } 
                 }*/
         $member->save();
-        return redirect()->route('home')->with('status', 'votre profil a bien été modifié !'); 
+        return redirect()->route('profile',$member->id)->with('status', 'votre profil a bien été modifié !'); 
     }
         else{
             return redirect()->route('home');   

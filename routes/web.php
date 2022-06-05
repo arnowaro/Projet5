@@ -17,12 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');})->name('home');
-
+/*Route::middleware(['auth'])->group(function () {*/
 Route::get('profile/{id}', [Membrecontroller::class, 'edit'])
 ->whereNumber('id')->name('profile');
 
 Route::post('profile/{id}', [Membrecontroller::class, 'update'])
 ->name('update.action');
+/*});*/
 Route::get('register', [Authcontroller::class, 'register'])->name('register');
 
 Route::post('register', [Authcontroller::class, 'register_action'])->name('register.action');

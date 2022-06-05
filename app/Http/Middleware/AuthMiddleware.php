@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Membres;
 use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
@@ -22,17 +23,20 @@ class AuthMiddleware
         
       // dd($request->session());
         if($request->session()->has('user')){
-          $data = Auth::user()->name;
+          $data = Auth::User()->name;
+          //dd($data);
+          $id=Auth::User()->id;
+          //dd($id);
           $utils=User::with('roles')->get()->where('name' ,'=', $data);
        
           foreach ($utils as $util) {
 
           foreach ($util->roles as $role) {
 
-          if ($role->rolename ==='ADMIN'){ 
+          if ($role->rolename ==='SuperAdmin'){ 
                
         return $next($request);
-      }else {return redirect()->route('livres')->with('status', "vous n'avez pas les droits d'accès du statut administrateur !");}  
+      }else {return redirect()->route('profile',$id)->with('status', "vous n'avez pas les droits d'accès du statut SuperAdmin !");}  
     } } 
      } else{
        return redirect()->route('/');

@@ -45,8 +45,8 @@
     
                   <div class="col-span-6 sm:col-span-3">
                     <label for="last-name" class="block text-sm font-medium text-gray-700">Nom</label>
-                    <input type="text" name="nom" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                    value="{{$membre->nom}}">
+                    <input type="text" name="name" id="last-name" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    value="{{$membre->name}}">
                   </div>
     
                   <div class="col-span-6 sm:col-span-4">
