@@ -334,7 +334,7 @@
 
         
  </div>
-  <div class=" pl-10 hidden md:block lg:block py-8  sticky top-6">
+  <div class=" pl-10 ml-10 hidden md:block lg:block py-8  sticky top-6">
 
   <input type="search" class="ml-16 w-3/4 py-2 pl-4 px-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-gray-50 focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px" placeholder="Search" autocomplete="off">
 <card class=" w-96 rounded-lg shadow-lg">
