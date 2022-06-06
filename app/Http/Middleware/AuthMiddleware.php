@@ -22,7 +22,11 @@ class AuthMiddleware
     {
         
       // dd($request->session());
-        if($request->session()->has('user')){
+        if (($request->session()->has('user')) || (Auth::viaRemember()))
+        
+         {
+          //
+     
           $data = Auth::User()->name;
           //dd($data);
           $id=Auth::User()->id;
@@ -39,7 +43,7 @@ class AuthMiddleware
       }else {return redirect()->route('profile',$id)->with('status', "vous n'avez pas les droits d'accès du statut SuperAdmin !");}  
     } } 
      } else{
-       return redirect()->route('/');
+       return redirect()->route('home');
     }
     }
 }

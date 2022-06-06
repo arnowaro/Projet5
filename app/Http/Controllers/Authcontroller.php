@@ -48,7 +48,7 @@ class Authcontroller extends Controller
             //$roles=User::with('roles')->get()->where('name' ,'=', $user->name);
             $credentials = $request->only('email', 'password');
            
-            if (Auth::attempt($credentials)) {
+            if (Auth::attempt($credentials, $request->get('remember'))) {
                
             $request->session()->regenerate();
             session(['user' => $membre]);
@@ -64,7 +64,7 @@ class Authcontroller extends Controller
  
     $request->session()->regenerateToken();
  
-    return redirect('/');
+    return redirect('login.action');
 }
 
 }

@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::middleware(['auth'])->group(function () {
 Route::get('/', function () {
     return view('index');})->name('home');
+});
 /*Route::middleware(['auth'])->group(function () {*/
 Route::get('profile/{id}', [Membrecontroller::class, 'edit'])
 ->whereNumber('id')->name('profile');
@@ -32,4 +33,4 @@ Route::get('login', [Authcontroller::class, 'login'])->name('login');
 
 Route::post('login', [Authcontroller::class, 'login_action'])->name('login.action');
 
-Route::get('signout', [Authcontroller::class, 'logout'])->name('signout');
+Route::post('signout', [Authcontroller::class, 'logout'])->name('signout');
