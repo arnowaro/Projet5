@@ -1,6 +1,11 @@
 <?php
 
+
 use App\Http\Controllers\CommentaireController;
+
+use App\Http\Controllers\Authcontroller;
+use App\Http\Controllers\Membrecontroller;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +18,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::middleware(['auth'])->group(function () {
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');})->name('home');
 });
+
 
 
 //cherche tous les commentaires 
@@ -36,3 +42,21 @@ Route::post('/commentaire/{id}/edit',[CommentaireController::class, 'updateComm'
 //Effacer un commentaire
 Route::get('/commentaire/{id}/delete',[CommentaireController::class, 'deleteComm'])->name('CommentaireDelete');
 Route::post('/commentaire/{id}/delete',[CommentaireController::class, 'destroyComm'])->name('CommentaireDestroy');
+    
+/*Route::middleware(['auth'])->group(function () {*/
+Route::get('profile/{id}', [Membrecontroller::class, 'edit'])
+->whereNumber('id')->name('profile');
+
+Route::post('profile/{id}', [Membrecontroller::class, 'update'])
+->name('update.action');
+/*});*/
+Route::get('register', [Authcontroller::class, 'register'])->name('register');
+
+Route::post('register', [Authcontroller::class, 'register_action'])->name('register.action');
+
+Route::get('login', [Authcontroller::class, 'login'])->name('login');
+
+Route::post('login', [Authcontroller::class, 'login_action'])->name('login.action');
+
+Route::post('signout', [Authcontroller::class, 'logout'])->name('signout');
+

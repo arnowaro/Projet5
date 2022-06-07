@@ -7,5 +7,7 @@ module.exports = {
   theme: {
     extend: {},
   },
+<<<<<<< HEAD
   plugins: [],
 }
+
