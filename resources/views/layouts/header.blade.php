@@ -18,7 +18,7 @@
             <!-- This is an example component -->
             <div class="relative mx-auto text-gray-600 lg:block hidden">
                 <input
-                    class="border-2 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none"
+                class="ml-16 w-3/4 py-2 pl-4 px-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400 focus:bg-gray-50 focus:outline-none focus:border-blue-500 focus:text-gray-900 focus:shadow-outline-blue" style="border-radius: 25px; width: 500px"
                     type="search" name="search" placeholder="Search">
                 <button type="submit" class="absolute right-0 top-0 mt-3 mr-2">
                     <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
