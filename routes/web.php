@@ -36,3 +36,13 @@ Route::post('/commentaire/{id}/edit',[CommentaireController::class, 'updateComm'
 //Effacer un commentaire
 Route::get('/commentaire/{id}/delete',[CommentaireController::class, 'deleteComm'])->name('CommentaireDelete');
 Route::post('/commentaire/{id}/delete',[CommentaireController::class, 'destroyComm'])->name('CommentaireDestroy');
+
+
+// les likes commentaire
+//like un post
+Route::get('/commentaire/{id}/like',[CommentaireController::class, 'likeComm'])->name('CommentaireLike');
+Route::post('/commentaire/{id}/like',[CommentaireController::class, 'likeComm'])->name('CommentaireLike');
+
+//unlike un post
+Route::get('/commentaire/{id}/unlike',[CommentaireController::class, 'unlikeComm'])->name('CommentaireUnlike');
+Route::post('/commentaire/{id}/unlike',[CommentaireController::class, 'unlikeComm'])->name('CommentaireUnlike');
