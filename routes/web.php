@@ -63,3 +63,12 @@ Route::get('signout', [Authcontroller::class, 'logout'])->name('signout');
 
 // Les centres d'intérets
 
+Route::get('/centreinteret',[CentreInteretController::class, 'index'])->name('centreinteret');
+Route::post('/centreinteret',[CentreInteretController::class, 'store'])->name('centreinteret.store');
+Route::get('/centreinteret/create',[CentreInteretController::class, 'create'])->name('centreinteret.create');
+Route::get('/centreinteret/{id}',[CentreInteretController::class, 'show'])->name('centreinteret.show');
+Route::get('/centreinteret/{id}/edit',[CentreInteretController::class, 'edit'])->name('centreinteret.edit');
+Route::post('/centreinteret/{id}/edit',[CentreInteretController::class, 'update'])->name('centreinteret.update');
+Route::get('/centreinteret/{id}/delete',[CentreInteretController::class, 'delete'])->name('centreinteret.delete');
+Route::post('/centreinteret/{id}/delete',[CentreInteretController::class, 'destroy'])->name('centreinteret.destroy');
+

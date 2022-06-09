@@ -17,5 +17,8 @@
         "mix": "^0.0.1",
         "postcss": "^8.4.14",
         "tailwindcss": "^3.0.24"
+    },
+    "dependencies": {
+        "daisyui": "^2.15.2"
     }
 }
