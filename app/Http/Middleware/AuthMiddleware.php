@@ -20,9 +20,11 @@ class AuthMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        
+        if (Auth::viaRemember()) {
+          dd('coucou');
+        }
       // dd($request->session());
-        if (($request->session()->has('user')) || (Auth::viaRemember()))
+        if ($request->session()->has('user')) 
         
          {
           //
