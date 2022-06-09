@@ -26,6 +26,6 @@
     </div>
   </div>
 
-  <div> <a href=""> <button class="btn btn-success">  <i class="fa-solid fa-pen"></i> &nbsp Mettre à jour mes centres d'interets</button></a> </div>
+  <div> <a href="/centreinteret/{{$membre->id}}/edit"> <button class="btn btn-success">  <i class="fa-solid fa-pen"></i> &nbsp Mettre à jour mes centres d'interets</button></a> </div>
 
 </div>
