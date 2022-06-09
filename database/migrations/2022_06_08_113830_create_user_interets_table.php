@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('membres_interets', function (Blueprint $table) {
-            $table->unsignedBigInteger('membres_id');
-            $table->foreign('membres_id')->references('id')->on('membres');
+
+        Schema::create('user_interets', function (Blueprint $table) {
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('ci_id');
-            $table->foreign('ci_id')->references('id')->on('centre_interets');    
+            $table->foreign('ci_id')->references('id')->on('centre_interets')->onUpdate('cascade')->onDelete('cascade');    
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('membres_interets');
+        Schema::dropIfExists('user_interets');
     }
 };

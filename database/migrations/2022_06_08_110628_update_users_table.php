@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('roles_membres', function (Blueprint $table) {
-            $table->unsignedBigInteger('membres_id');
-            $table->foreign('membres_id')->references('id')->on('membres');
-            $table->unsignedBigInteger('roles_id');
-            $table->foreign('roles_id')->references('id')->on('roles');    
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+           
+            $table->string('prenom');
+            $table->date('ddn');
+            $table->boolean('sexe');
+            $table->string('avatar')->nullable();
+            $table->string('pcouverture')->nullable();
+            $table->string('metier',255)->nullable();
+
         });
     }
 
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles_users');
+        //
     }
 };

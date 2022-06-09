@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('etre_amis', function (Blueprint $table) {
-            $table->unsignedBigInteger('membres_id');
-            $table->foreign('membres_id')->references('id')->on('membres');
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('amis_id');
-            $table->foreign('amis_id')->references('id')->on('membres');    
+            $table->foreign('amis_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');    
             $table->timestamps();
         });
     }

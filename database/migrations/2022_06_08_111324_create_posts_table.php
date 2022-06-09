@@ -20,8 +20,9 @@ return new class extends Migration
             $table->date('ddp');
             $table->string('photo',255);
             $table->string('video',255);
-            $table->unsignedBigInteger('membres_id');
-            $table->foreign('membres_id')->references('id')->on('membres');
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('users_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->boolean('censure');
             $table->timestamps();
         });
     }
