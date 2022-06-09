@@ -60,3 +60,6 @@ Route::post('login', [Authcontroller::class, 'login_action'])->name('login.actio
 
 Route::get('signout', [Authcontroller::class, 'logout'])->name('signout');
 
+
+// Les centres d'intérets
+
