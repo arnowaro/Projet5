@@ -1,4 +1,8 @@
-<div class="carousel carousel-center w-96 max-w-md p-4 space-x-4 bg-neutral rounded-box">
+
+<div class="flex flex-col gap-2">
+
+
+<div class="carousel carousel-center w-full p-4  shadow-2xl space-x-4 bg-stone-800 rounded-box mb-8">
     <div class="carousel-item">
       <img src="https://api.lorem.space/image/furniture?w=250&h=180&hash=8B7BCDC2" class="rounded-box" />
     </div> 
@@ -21,3 +25,7 @@
       <img src="https://api.lorem.space/image/furniture?w=250&h=180&hash=7F5AE56A" class="rounded-box" />
     </div>
   </div>
+
+  <div> <a href=""> <button class="btn btn-success">  <i class="fa-solid fa-pen"></i> &nbsp Mettre à jour mes centres d'interets</button></a> </div>
+
+</div>

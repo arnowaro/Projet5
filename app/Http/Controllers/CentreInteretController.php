@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CentreInteret;
 use Illuminate\Http\Request;
 
 class CentreInteretController extends Controller
@@ -13,7 +14,12 @@ class CentreInteretController extends Controller
      */
     public function index()
     {
-        //
+        $cinterets = CentreInteret::all();
+        
+        return view('centreinteret',
+        [
+            'cinterets' => $cinterets
+        ]);
     }
 
     /**
@@ -49,18 +55,18 @@ class CentreInteretController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     *  Afficher le formulaire pour modifier les centre d'interet d'un utilitsateur
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        return view('centreinteret'); 
     }
 
     /**
-     * Update the specified resource in storage.
+     * Modifie les centres d'interet d'un utilisateurs
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id

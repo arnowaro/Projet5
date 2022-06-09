@@ -7,7 +7,7 @@
 
 
 <div>
-    <div class="md:grid md:grid-cols-3 md:gap-6">
+    <div class="md:grid md:grid-cols-3 md:gap-6 m-4">
       @if ($errors->any())
       <div class="alert alert-danger">
           <ul>
@@ -98,10 +98,10 @@
 
                   <div>
                     <div>
-                      <p> Vos catégories</p>
+                      <p> Vos centres d'interets</p>
                     </div>
                     <div>
-                      @include('components.centreinterets')
+                      @include('components.SliderInterets')
                     </div>
                   </div>
             
