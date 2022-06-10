@@ -101,7 +101,8 @@
             </div>
           </div>
         </form>
-        
+        <form method="get" action="/centreinteret/{{$membre->id}}/edit">
+          @csrf
         <div>
           <div>
            <a href="/centreinteret/{{$membre->id}}/edit"> <p> Vos centres d'interets</p></a>
@@ -111,7 +112,7 @@
           </div>
         </div>
   
-
+        </form>
       </div>
     </div>
   </div>

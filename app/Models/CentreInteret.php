@@ -11,7 +11,7 @@ class CentreInteret extends Model
 
     public function user()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'user_interets', 'users_id', 'ci_id' );
     }
 
     

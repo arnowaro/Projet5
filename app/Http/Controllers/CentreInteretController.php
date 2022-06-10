@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CentreInteret;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CentreInteretController extends Controller
@@ -16,7 +17,7 @@ class CentreInteretController extends Controller
     {
         $cinterets = CentreInteret::all();
         
-        return view('centreinteret',
+        return view('centreinteret', 
         [
             'cinterets' => $cinterets
         ]);
@@ -61,8 +62,16 @@ class CentreInteretController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        return view('centreinteret_edit'); 
+    {   
+       
+        $user=User::with('centreinterets')->find($id);
+        $cinterets = CentreInteret::all();
+
+        return view('centreinteret_edit', 
+        [   
+            'user' => $user,
+            'cinterets' => $cinterets,
+        ]); 
     }
 
     /**
@@ -74,7 +83,20 @@ class CentreInteretController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+          $validate = $request->validate([
+
+
+            'centreinterets' => 'required|array|min:1',
+
+        ]);
+
+        $user = User::with('centreinterets')->where('id', '=', $id)->get();
+        $user = User::find($id);
+
+        $user-> centreinterets()->sync($validate['centreinterets']);
+        $user->update();
+
+        return redirect()->route('profile', ['id' => $id]);
     }
 
     /**
