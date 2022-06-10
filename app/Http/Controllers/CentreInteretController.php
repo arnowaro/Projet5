@@ -23,6 +23,19 @@ class CentreInteretController extends Controller
         ]);
     }
 
+
+   
+    // public function interetprofil($id)
+    // {
+    //     $user=User::with('centreinterets')->find($id);
+    //     $cinterets = CentreInteret::all();
+
+    //     return view('profile', 
+    //     [   
+    //         'user' => $user,
+    //         'cinterets' => $cinterets,
+    //     ]); 
+    // }
     /**
      * Show the form for creating a new resource.
      *
