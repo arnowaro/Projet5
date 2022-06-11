@@ -6,7 +6,7 @@ use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\Authcontroller;
 use App\Http\Controllers\CentreInteretController;
 use App\Http\Controllers\Membrecontroller;
-
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -80,3 +80,15 @@ Route::get('/centreinteret/{id}/delete',[CentreInteretController::class, 'delete
 
 Route::post('/centreinteret/{id}/delete',[CentreInteretController::class, 'destroy'])->name('centreinteret.destroy');
 
+
+
+
+// Les posts de la page d'accueil 
+
+
+Route::get('/',[PostController::class, 'index'])->name('post');
+
+
+// profil public
+
+Route::get('/profilepub/{id}',[Membrecontroller::class, 'show'])->whereNumber('id')->name('profil');

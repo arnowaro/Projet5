@@ -9,6 +9,30 @@ use Illuminate\Support\Facades\Storage;
 
 class Membrecontroller extends Controller
 {
+
+ 
+    public function show($id)
+    {
+     
+        $user = User::find($id);
+
+        return view('profile', [
+           
+            'user' => $user,
+        ]);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
     public function edit($id)
     {
         $member = User::find($id);
