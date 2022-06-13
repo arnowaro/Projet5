@@ -15,7 +15,7 @@ class AmisController extends Controller
     public function showamis()
     {
        
-        
+        // ici la demande c'est pas bon, l'ajout doit aller chez l'autre mec, et non retourner chez moi
         $amis = User::all();
         // $demandes =User::all();
         $demandes =User::with('amis')->where('id', auth()->user()->id)->first();
