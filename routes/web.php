@@ -103,7 +103,7 @@ Route::get('/profilepub/{id}', [MembreController::class, 'showprofile'])->whereN
 
 Route::get('/amis/',[Amiscontroller::class, 'showamis'])->name('amis');
 // Route::get('/amis/',[Amiscontroller::class, 'showdemandeamis'])->name('demandeamis');
-Route::post('/amis',[Amiscontroller::class, 'storeamis'])->name('amis.store');
+Route::post('/amis/store',[Amiscontroller::class, 'storeamis'])->name('amis.store');
 
 // accepter un amis
-Route::post('/amis/{id}/accept',[Amiscontroller::class, 'acceptamis'])->name('amis.accept');    
+Route::post('/amis/accept',[Amiscontroller::class, 'acceptamis'])->name('amis.accept');    

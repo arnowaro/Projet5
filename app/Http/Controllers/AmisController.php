@@ -67,9 +67,9 @@ class AmisController extends Controller
 
     public function acceptamis(Request $request, $id)
 
-    {
+    { 
         $validate = $request->validate([
-
+        
             'accepted' => 'required|integer',
         ]);
 
