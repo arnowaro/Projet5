@@ -14,14 +14,19 @@ class AmisController extends Controller
      */
     public function showamis()
     {
-        session_start();
+       
         
         $amis = User::all();
+        // $demandes =User::all();
+        $demandes =User::with('amis')->where('id', auth()->user()->id)->first();
+        //on récuperer un user( donc un first) avec ses amis donc on est obligé de faire un get  
+        //les amis (tableaux) on fait un get pour les récupérers
         return view('amis', [
             'amis' => $amis,
+            'demandes' => $demandes->amis()->get(),
+            //ici on récupere list d'amis donc get()
         ]);
     }
-    
     
    
     
@@ -44,20 +49,36 @@ class AmisController extends Controller
     public function storeamis(Request $request)
     {
        
-        // $validate = $request->validate([
+        $validate = $request->validate([
     
-        //     'amis_id' => 'required ',
-        //     'user_id' => 'required ',
-        // ]);
-        // $amis = User::get();
+            'amis_id' => 'required ',
+            'user_id' => 'required ',
+        ]);
+        $amis = User::get();
 
-        // $amis = new User();
-        // $amis->friend_id = $validate['amis_id'];
-        // $amis->user_id = $validate['user_id'];
-        // $amis->save();
-        // $amis->friendsTo()->attach($validate['amis_id']);
-        // return redirect()->route('amis');
+        $amis = new Amis();
+        $amis->amis_id = $validate['amis_id'];
+        $amis->user_id = $validate['user_id'];
+        $amis->accepted = 0;
+        $amis->save();
+        // $amis->amis()->attach($validate['amis_id']);
+        return redirect()->route('amis');
     }
+
+    public function acceptamis(Request $request, $id)
+
+    {
+        $validate = $request->validate([
+
+            'accepted' => 'required|integer',
+        ]);
+
+        $amis = Amis::find($id);
+        $amis->accepted = $validate['accepted'];
+        $amis->update();
+        return redirect()->route('amis');
+    }
+
     
 
      

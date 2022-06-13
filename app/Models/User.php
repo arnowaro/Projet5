@@ -66,24 +66,24 @@ class User extends Authenticatable
         return $this->hasMany(Like::class, 'posts_id','user_id');
     }
 
+    // public function amis()
+    // {
+    //     return $this->belongsToMany(Amis::class,'amis', 'amis_id', 'user_id');
+    // }
+
+
+
+
     public function amis()
     {
-        return $this->belongsToMany(Amis::class );
-    }
-
-
-
-
-    public function friendsTo()
-    {
-        return $this->belongsToMany(User::class, 'friends', 'user_id', 'friend_id')
+        return $this->belongsToMany(User::class, 'amis', 'user_id', 'amis_id')
             ->withPivot('accepted')
             ->withTimestamps();
     }
  
-    public function friendsFrom()
+    public function amisde()
     {
-        return $this->belongsToMany(User::class, 'friends', 'friend_id', 'user_id')
+        return $this->belongsToMany(User::class, 'amis', 'amis_id', 'user_id')
             ->withPivot('accepted')
             ->withTimestamps();
     }
