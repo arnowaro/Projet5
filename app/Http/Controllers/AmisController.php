@@ -1,41 +1,30 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Amis;
 use App\Models\User;
-use App\Models\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class AmisController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-
-
-     public function nblikes($id)
+    public function showamis()
     {
-        $posts = Post::withcount('likes')->find($id);
-        return view('nblikes', [
-            'posts' => $posts,
+        session_start();
+        
+        $amis = User::all();
+        return view('amis', [
+            'amis' => $amis,
         ]);
     }
     
-
-
-    public function index()
-    {
-        $membre= User::with('posts')->get();
-        $posts = Post::all();
-        
-        return view('index', [
-            'posts' => $posts,
-            'membre' => $membre,
-        ]);
-    }
-
+    
+   
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -52,10 +41,27 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeamis(Request $request)
     {
-        //
+       
+        // $validate = $request->validate([
+    
+        //     'amis_id' => 'required ',
+        //     'user_id' => 'required ',
+        // ]);
+        // $amis = User::get();
+
+        // $amis = new User();
+        // $amis->friend_id = $validate['amis_id'];
+        // $amis->user_id = $validate['user_id'];
+        // $amis->save();
+        // $amis->friendsTo()->attach($validate['amis_id']);
+        // return redirect()->route('amis');
     }
+    
+
+     
+
 
     /**
      * Display the specified resource.

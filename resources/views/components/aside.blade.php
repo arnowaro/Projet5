@@ -1,6 +1,6 @@
 <div class="flex flex-col items-start">
     <div class="  p-2 flex justify-center">
-        <a href="#"
+        <a href="" class="text-gray-600 hover:text-gray-900"
             class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
             <span class="inline-flex justify-center items-center ml-4">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -52,7 +52,7 @@
     </div>
 
     <div class=" my-2 p-2 flex justify-center">
-        <a href="#"
+        <a href="/amis"
             class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
             <span class="inline-flex justify-center items-center ml-4">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -84,7 +84,7 @@
     </div>
 
     <div class=" my-2 p-2 flex justify-center">
-        <a href=""
+        <a href="/profilepub/{{Auth::user()->id}}"
             class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
             <span class="inline-flex justify-center items-center ml-4">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"

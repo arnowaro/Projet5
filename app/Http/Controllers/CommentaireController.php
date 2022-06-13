@@ -12,11 +12,10 @@ class CommentaireController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getComm()
-    {
-        $commentaires = Commentaire::All();
-
-        return view('commentaires', [
+    public function getCommByPost($id)
+        {
+            $commentaires = Commentaire::where('post_id', $id)->get();
+        return view('profilepub', [
             'commentaires' => $commentaires,
         ]);
     }

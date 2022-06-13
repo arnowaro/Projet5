@@ -3,6 +3,7 @@
 
 
 <div class="bg-white shadow rounded-lg mt-10">
+    <a href="/profilepub/{{$post->user->id}}"> 
     <div class="flex flex-row px-2 py-3 mx-3">
         <div class="w-auto h-auto rounded-full border-2 border-green-500">
             <img class="w-12 h-12 object-cover rounded-full shadow cursor-pointer"
@@ -21,6 +22,7 @@
             </div>
         </div>
     </div>
+    </a>
     <div class="border-b border-gray-100"></div>
     <div class="text-gray-400 font-medium text-sm mb-7 mt-6 mx-3 px-2">
         <img class="rounded w-full" src="{{$post->photo}}">
@@ -82,7 +84,7 @@
         </div>
         <div class="mt-3 mx-5 w-full flex justify-end text-xs">
             <div class="flex text-gray-700  rounded-md mb-2 mr-4 items-center">Likes: <div
-                    class="ml-1 text-gray-400 text-ms"> 120k</div>
+                    class="ml-1 text-gray-400 text-ms"> </div>
             </div>
         </div>
     </div>

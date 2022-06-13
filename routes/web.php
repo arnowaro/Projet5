@@ -2,7 +2,7 @@
 
 
 use App\Http\Controllers\CommentaireController;
-
+use App\Http\Controllers\Amiscontroller;
 use App\Http\Controllers\Authcontroller;
 use App\Http\Controllers\CentreInteretController;
 use App\Http\Controllers\Membrecontroller;
@@ -30,7 +30,7 @@ Route::get('/', function () {
 Route::get('/commentaire',[CommentaireControllerer::class, 'getComm'])->name('Commentaire');
 
 //cherche les commentaires par post id
-Route::get('/commentaire/{id}',[CommentaireController::class, 'getCommByPost'])->name('CommentaireByPost');
+Route::get('/commentaire/{id}',[CommentaireController::class, 'getCommByPost'])->whereNumber('id')->name('CommentaireByPost');
 
 //Ajoute le champs form pour ajouter un commentaire
 Route::get('/commentaire/create',[CommentaireController::class, 'createComm'])->name('CommentaireCreate');
@@ -91,4 +91,15 @@ Route::get('/',[PostController::class, 'index'])->name('post');
 
 // profil public
 
-Route::get('/profilepub/{id}',[Membrecontroller::class, 'show'])->whereNumber('id')->name('profil');
+Route::get('/profilepub',[Membrecontroller::class, 'profilepub'])->name('profilpub');
+Route::get('/profilepub/{id}', [MembreController::class, 'showprofile'])->whereNumber('id');
+// le compteur de like
+
+// Route::get('/',[PostController::class, 'nblikes'])->name('like');
+
+
+
+// Les amis
+
+Route::get('/amis/',[Amiscontroller::class, 'showamis'])->name('amis');
+Route::post('/amis',[Amiscontroller::class, 'storeamis'])->name('amis.store');

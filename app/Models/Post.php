@@ -19,4 +19,10 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'user_id','id' ); // ici il faut préciser le nom de la clé étrangere sinon laravel met une par défaut selon la nomenclature basique
     }
+
+
+    public function userslikes()
+    {
+        return $this->hasMany(Like::class, 'posts_id','user_id' ); // ici il faut préciser le nom de la clé étrangere sinon laravel met une par défaut selon la nomenclature basique
+    }
 }
