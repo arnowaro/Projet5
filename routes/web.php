@@ -25,6 +25,10 @@ Route::get('/', function () {
 });
 
 
+// celle de Florent
+Route::post('/comment', [PostController::class, 'comment'])->name('comment');
+Route::get('/comment', [PostController::class, 'comment'])->name('comment');
+
 
 //cherche tous les commentaires 
 Route::get('/commentaire',[CommentaireControllerer::class, 'getComm'])->name('Commentaire');
@@ -82,7 +86,6 @@ Route::post('/centreinteret/{id}/delete',[CentreInteretController::class, 'destr
 
 
 
-
 // Les posts de la page d'accueil 
 
 
@@ -101,9 +104,9 @@ Route::get('/profilepub/{id}', [MembreController::class, 'showprofile'])->whereN
 
 // Les amis
 
-Route::get('/amis/',[Amiscontroller::class, 'showamis'])->name('amis');
+Route::get('/amis',[Amiscontroller::class, 'showamis'])->name('amis');
 // Route::get('/amis/',[Amiscontroller::class, 'showdemandeamis'])->name('demandeamis');
 Route::post('/amis/store',[Amiscontroller::class, 'storeamis'])->name('amis.store');
 
 // accepter un amis
-Route::post('/amis/accept',[Amiscontroller::class, 'acceptamis'])->name('amis.accept');    
+Route::post('/amis/edit',[Amiscontroller::class, 'acceptamis'])->name('amis.accept');    

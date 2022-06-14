@@ -108,13 +108,16 @@ class Membrecontroller extends Controller
     {
 
 
-         $user = User::find($id);
+         $user = User::with('amis')->find($id);
          
         // $user = User::with('centreinterets')->with('posts')->get();
+        $amis =User::with('amis')->where('id', auth()->user()->id)->first();
+        
        
-       
-        return view('profilepub', [
-            'user' => $user,
+            
+            return view('profilepub', [
+                'user' => $user,
+                'amis' => $user->amis()->where('accepted', 1)->get(),
             
         ]);
     }

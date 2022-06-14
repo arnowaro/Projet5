@@ -102,7 +102,7 @@
 
                 <!-- Main Contents -->
 
-                <div class="block md:grid md:grid-flow-row-dense md:grid-cols-3 md:grid-rows-3 ">
+                <div class="block md:grid md:grid-flow-row-dense md:grid-cols-3 md:grid-rows- ">
                     <div class="col-span-2">
                         <div class="pt-10">
                             <form class="bg-white shadow rounded-lg mb-6 p-4 w-full md:w-full">

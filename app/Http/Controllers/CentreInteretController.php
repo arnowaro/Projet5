@@ -63,9 +63,15 @@ class CentreInteretController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showcihome($id)
     {
-        //
+          $user=User::with('centreinterets')->where('id', Auth::user()->id)->first();  
+          
+          return view('index',
+            [
+                'user' => $user,
+            ]);
+          
     }
 
     /**
@@ -111,6 +117,8 @@ class CentreInteretController extends Controller
 
         return redirect()->route('profile', ['id' => $id]);
     }
+
+    
 
     /**
      * Remove the specified resource from storage.

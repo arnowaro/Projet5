@@ -56,6 +56,12 @@ class User extends Authenticatable
         return $this->belongsToMany(CentreInteret::class, 'user_interets', 'users_id', 'ci_id' );
     }
     
+    //post() de Florent
+    public function post()
+    {
+        return $this->belongsTo(Posts::class, 'post_id');
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);

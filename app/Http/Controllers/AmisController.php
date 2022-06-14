@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Amis;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use DB;
 class AmisController extends Controller
 {
     /**
@@ -12,6 +12,8 @@ class AmisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
     public function showamis()
     {
        
@@ -23,7 +25,7 @@ class AmisController extends Controller
         //les amis (tableaux) on fait un get pour les récupérers
         return view('amis', [
             'amis' => $amis,
-            'demandes' => $demandes->amis()->get(),
+            'demandes' => $demandes->amis()->where('accepted', 0)->get(),
             //ici on récupere list d'amis donc get()
         ]);
     }
@@ -53,35 +55,59 @@ class AmisController extends Controller
     
             'amis_id' => 'required ',
             'user_id' => 'required ',
+            'accepted' => 'required ',
         ]);
         $amis = User::get();
-
+       
         $amis = new Amis();
         $amis->amis_id = $validate['amis_id'];
         $amis->user_id = $validate['user_id'];
-        $amis->accepted = 0;
+        $amis->accepted = $validate['accepted'];
         $amis->save();
         // $amis->amis()->attach($validate['amis_id']);
         return redirect()->route('amis');
     }
 
-    public function acceptamis(Request $request, $id)
+    public function acceptamis(Request $request)
+    {
 
-    { 
-        $validate = $request->validate([
-        
-            'accepted' => 'required|integer',
-        ]);
 
-        $amis = Amis::find($id);
-        $amis->accepted = $validate['accepted'];
-        $amis->update();
+         DB::table('amis')
+              ->where('amis_id', $request->amis_id)
+                ->where('user_id', $request->user_id)
+              ->update(['accepted' => 1]);
         return redirect()->route('amis');
+        // $validate = $request->validate([
+    
+        //     'amis_id' => 'required ',
+        //     'user_id' => 'required ',
+        //     'accepted' => 'required ',
+        // ]);
+        //  $amis = User::first();
+        // $amis=Amis::where('amis_id', $validate['amis_id'])->where('user_id', $validate['user_id']  )->first();
+        // $amis->accepted = $validate['accepted'];
+        
+        
+        // $amis->save();
+       
+        // return redirect()->route('amis');
     }
 
     
+    //     $amis = Amis::
+    //     find($validate['amis_id']);
+    //     $amis->amis_id = $validate['amis_id'];
+    //     $amis->user_id = $validate['user_id'];
+    //     $amis->accepted = $validate['accepted'];
+    //     $amis->update();
+    //     // $amis->amis()->attach($validate['amis_id']);
+    //     return redirect()->route('amis');
+    // }
+    
 
-     
+        
+    
+  
 
 
     /**

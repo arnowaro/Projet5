@@ -13,7 +13,11 @@ class Post extends Model
     {
         return $this->hasMany(Commentaire::class, 'posts_id','id' ); // ici il faut préciser le nom de la clé étrangere sinon laravel met une par défaut selon la nomenclature basique
     }
-
+    // users() celle de florent
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function user()
     {

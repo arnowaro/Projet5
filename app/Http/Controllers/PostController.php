@@ -3,10 +3,26 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Commentaire;
 use Illuminate\Http\Request;
 
+
 class PostController extends Controller
+{   
+
+    // celle de florent pour les commentaires d'un post 
+    //celle de florent
+    public function comment(Request $request)
 {
+
+    $comments = new Commentaire();
+    $comments->users_id = $request->users_id;
+    $comments->posts_id = $request->posts_id;
+    $comments->comment = $request->comments;
+    $comments->ddc = now();
+    $comments->save();
+    return redirect('/')->with('commentaire ajouter', 'ok');
+}
     /**
      * Display a listing of the resource.
      *
@@ -28,11 +44,14 @@ class PostController extends Controller
     public function index()
     {
         $membre= User::with('posts')->get();
-        $posts = Post::all();
+        // $posts = Post::all();
+        $posts = Post::paginate();
+       
         
         return view('index', [
             'posts' => $posts,
-            'membre' => $membre,
+            'membre' => $membre
+            ,
         ]);
     }
 
